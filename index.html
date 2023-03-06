@@ -4,7 +4,6 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -13,6 +12,7 @@
   </head>
   <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js" integrity="sha512-3RlxD1bW34eFKPwj9gUXEWtdSMC59QqIqHnD8O/NoTwSJhgxRizdcFVQhUMFyTp5RwLTDL0Lbcqtl8b7bFAzog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+  <script src="./ball.js"></script>
   <script>
     const p1 = {
       x: 0,
@@ -28,15 +28,34 @@
         this.y = this.y + this.step;
       }
     }
+    let ball;
 
     function setup() {
       createCanvas(windowWidth, windowHeight);
+      ball = new Ball();
     }
 
     function draw() {
       background('white')
       rect(p1.x, p1.y, p1.w, p1.h);
+      ball.draw();
+
+      ball.move();
       p1.move();
+
+      ball.edge();
+    }
+
+    function keyPressed() {
+      if(keyCode === 87)
+        console.log('p1 up');
+      if(keyCode === 83)
+        console.log('p1 down');
+
+      if(keyCode === UP_ARROW) 
+        console.log('p2 up');
+      if(keyCode === DOWN_ARROW)
+        console.log('p2 down');
     }
   </script>
   </body>
