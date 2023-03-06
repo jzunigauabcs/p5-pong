@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  </head>
+  <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js" integrity="sha512-3RlxD1bW34eFKPwj9gUXEWtdSMC59QqIqHnD8O/NoTwSJhgxRizdcFVQhUMFyTp5RwLTDL0Lbcqtl8b7bFAzog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+  <script>
+    const p1 = {
+      x: 0,
+      y: 20,
+      w: 25,
+      h: 100,
+      step: 1,
+      move: function() {
+        if(this.y + this.h === height) 
+          this.step = -1;
+        else if(this.y === 0)
+          this.step = 1;
+        this.y = this.y + this.step;
+      }
+    }
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+    }
+
+    function draw() {
+      background('white')
+      rect(p1.x, p1.y, p1.w, p1.h);
+      p1.move();
+    }
+  </script>
+  </body>
+</html>
